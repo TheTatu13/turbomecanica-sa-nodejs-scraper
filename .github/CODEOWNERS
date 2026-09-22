@@ -1,0 +1,5 @@
+# Default owner
+*       @TheTatu13
+
+# Code owners for specific directories
+/.github/workflows/ @TheTatu13

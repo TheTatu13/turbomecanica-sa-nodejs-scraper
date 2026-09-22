@@ -1,0 +1,10 @@
+{
+  "id": "3156315",
+  "company": "TURBOMECANICA SA",
+  "brand": "Turbomecanica",
+  "status": "activ",
+  "location": ["Bucuresti"],
+  "website": ["https://turbomecanica.ro"],
+  "career": ["https://turbomecanica.ro/en/careers/available-jobs/"],
+  "scraperFile": "https://github.com/TheTatu13/turbomecanica-sa-nodejs-scraper/actions/workflows/scrape.yml"
+}

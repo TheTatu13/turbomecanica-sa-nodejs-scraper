@@ -1,0 +1,20 @@
+{
+  "userAgent": "job_seeker_ro_spider",
+  "requestTimeoutMs": 10000,
+  "pageDelayMs": 1000,
+  "staleJobDeletion": false,
+  "manageCompany": true,
+  "defaultLocation": ["Bucuresti"],
+  "defaultWorkmode": "on-site",
+  "ownJobUrlPrefix": "https://turbomecanica.ro/job/",
+  "sources": {
+    "sitemap": "",
+    "listing": "https://turbomecanica.ro/en/careers/available-jobs/",
+    "jobArchive": "https://turbomecanica.ro/job/"
+  },
+  "selectors": {
+    "jobArticle": ["article.job-preview", "[class*='job']", ".vacancy, .position, .listing-item"],
+    "jobTitle": ["h5 a", "h1, h2, h3, h4", "[itemprop='title'], [aria-label]", "a"],
+    "jobMeta": [".job-additional-information", "p, .meta, [class*='deadline']"]
+  }
+}

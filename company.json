@@ -1,0 +1,67 @@
+{
+  "validatedAt": "2026-09-22T19:56:40.978Z",
+  "source": "ANAF",
+  "brand": "Turbomecanica",
+  "anaf": {
+    "cui": 3156315,
+    "name": "TURBOMECANICA SA",
+    "address": "MUNICIPIUL BUCUREŞTI, SECTOR 6, B-DUL IULIU MANIU, NR.244",
+    "registrationNumber": "J1991000533409",
+    "phone": "0213123747",
+    "fax": "",
+    "postalCode": "",
+    "caenCode": "3032",
+    "iban": "",
+    "registrationState": "INREGISTRAT din data 19.02.1991",
+    "registrationDate": "1993-02-09",
+    "fiscalAuthority": "Direcţia Generală a Finanţelor Publice Municipiul Bucureşti",
+    "ownershipForm": "PROPR.MIXTA-DE STAT SI PRIVAT AUTOHTON",
+    "organizationForm": "PERSOANA JURIDICA",
+    "legalForm": "SOCIETATE COMERCIALĂ PE ACŢIUNI",
+    "vatRegistered": true,
+    "vatPeriods": [
+      {
+        "start": "1993-07-01",
+        "end": null,
+        "yearStart": "",
+        "message": ""
+      }
+    ],
+    "cashBasisVat": false,
+    "cashBasisVatStart": null,
+    "cashBasisVatEnd": null,
+    "inactive": false,
+    "inactiveSince": null,
+    "reactivatedSince": null,
+    "splitVat": false,
+    "eFacturaRegistered": true,
+    "headquartersAddress": {
+      "street": "Bld. Iuliu Maniu",
+      "number": "244",
+      "locality": "Sector 6 Mun. Bucureşti",
+      "county": "MUNICIPIUL BUCUREŞTI",
+      "country": "",
+      "postalCode": ""
+    },
+    "fiscalAddress": {
+      "street": "",
+      "number": "",
+      "locality": "",
+      "county": "",
+      "country": "",
+      "postalCode": ""
+    },
+    "administrators": [],
+    "authorizedCaenCodes": [],
+    "onrcStatus": 0,
+    "onrcStatusLabel": "Funcțiune"
+  },
+  "peviitor": null,
+  "summary": {
+    "company": "TURBOMECANICA SA",
+    "cif": "3156315",
+    "active": true,
+    "inactiveSince": null,
+    "address": "MUNICIPIUL BUCUREŞTI, SECTOR 6, B-DUL IULIU MANIU, NR.244"
+  }
+}
