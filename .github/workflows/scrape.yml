@@ -89,17 +89,29 @@ jobs:
           fi
 
       - name: Pre-scrape — Unit Tests
+        # Non-blocking: tests/unit/demoanaf.test.js makes live, unmocked calls
+        # to demoanaf.ro (searchCompany). anaf.js itself already falls back to
+        # cuifirma.ro when demoanaf.ro is down, but if BOTH providers are ever
+        # down at once, this step must not be able to stop "Run scraper" below
+        # -- that exact failure mode (a live external test dependency blocking
+        # the whole pipeline for days) took down a fleet-adjacent scraper on
+        # 2026-09-24. Test results are still generated and uploaded either way.
+        continue-on-error: true
         run: |
           mkdir -p docs/test-results
           npm run test:unit
-          sed -i 's|<title>Test Report</title>|<title>Pre-scrape: Unit Tests — TURBOMECANICA SA</title>|;s|<h1 id="title">Test Report</h1>|<h1 id="title">Pre-scrape: Unit Tests — TURBOMECANICA SA</h1>|' test-report.html
+          sed -i 's|<title>Test Report</title>|<title>Pre-scrape: Unit Tests — {{COMPANY_NAME}}</title>|;s|<h1 id="title">Test Report</h1>|<h1 id="title">Pre-scrape: Unit Tests — {{COMPANY_NAME}}</h1>|' test-report.html
           cp test-report.html docs/test-results/pre-scrape-unit.html || true
 
       - name: Pre-scrape — Integration Tests
+        # Same live demoanaf.ro/cuifirma.ro dependency as the unit suite above
+        # (workflow.test.js also calls anaf.searchCompany) -- non-blocking for
+        # the same reason.
+        continue-on-error: true
         run: |
           mkdir -p docs/test-results
           npm run test:integration
-          sed -i 's|<title>Test Report</title>|<title>Pre-scrape: Integration Tests — TURBOMECANICA SA</title>|;s|<h1 id="title">Test Report</h1>|<h1 id="title">Pre-scrape: Integration Tests — TURBOMECANICA SA</h1>|' test-report.html
+          sed -i 's|<title>Test Report</title>|<title>Pre-scrape: Integration Tests — {{COMPANY_NAME}}</title>|;s|<h1 id="title">Test Report</h1>|<h1 id="title">Pre-scrape: Integration Tests — {{COMPANY_NAME}}</h1>|' test-report.html
           cp test-report.html docs/test-results/pre-scrape-integration.html || true
 
       - name: Run scraper
@@ -125,17 +137,21 @@ jobs:
           fi
 
       - name: Post-scrape — E2E Tests
+        # Same live demoanaf.ro dependency (scraper.test.js calls searchCompany)
+        # -- non-blocking so a broken external demo endpoint can't also skip
+        # Consistency Tests below, after a scrape that already succeeded.
+        continue-on-error: true
         run: |
           mkdir -p docs/test-results
           npm run test:e2e
-          sed -i 's|<title>Test Report</title>|<title>Post-scrape: E2E Tests — TURBOMECANICA SA</title>|;s|<h1 id="title">Test Report</h1>|<h1 id="title">Post-scrape: E2E Tests — TURBOMECANICA SA</h1>|' test-report.html
+          sed -i 's|<title>Test Report</title>|<title>Post-scrape: E2E Tests — {{COMPANY_NAME}}</title>|;s|<h1 id="title">Test Report</h1>|<h1 id="title">Post-scrape: E2E Tests — {{COMPANY_NAME}}</h1>|' test-report.html
           cp test-report.html docs/test-results/post-scrape.html || true
 
       - name: Consistency Tests
         run: |
           mkdir -p docs/test-results
           npm run test:consistency
-          sed -i 's|<title>Test Report</title>|<title>Post-scrape: Consistency Tests — TURBOMECANICA SA</title>|;s|<h1 id="title">Test Report</h1>|<h1 id="title">Post-scrape: Consistency Tests — TURBOMECANICA SA</h1>|' test-report.html
+          sed -i 's|<title>Test Report</title>|<title>Post-scrape: Consistency Tests — {{COMPANY_NAME}}</title>|;s|<h1 id="title">Test Report</h1>|<h1 id="title">Post-scrape: Consistency Tests — {{COMPANY_NAME}}</h1>|' test-report.html
           cp test-report.html docs/test-results/post-scrape-consistency.html || true
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
