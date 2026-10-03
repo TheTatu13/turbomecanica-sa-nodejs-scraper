@@ -265,7 +265,7 @@ export async function deleteJobByUrl(url) {
 export async function upsertJobs(jobs) {
   const url = `${API_BASE_URL}/scraper/jobs/upload/`;
 
-  const paddedJobs = jobs.map(job => ({
+  const paddedJobs = jobs.map(({ _version_, ...job }) => ({
     ...job,
     cif: padCif(job.cif)
   }));
