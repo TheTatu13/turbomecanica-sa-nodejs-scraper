@@ -11,7 +11,7 @@ npm test
 
 ## Reporting Issues
 
-Open a [GitHub Issue](https://github.com/TheTatu13/turbomecanica-sa-nodejs-scraper/issues) with:
+Open a [GitHub Issue](https://github.com/peviitor-scrapers/turbomecanica-sa-nodejs-scraper/issues) with:
 - Clear description of the problem
 - Steps to reproduce
 - Expected vs actual behavior

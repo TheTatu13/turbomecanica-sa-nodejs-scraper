@@ -68,7 +68,7 @@ When polling a workflow run with `until [ "$(gh run view ID --json status -q .st
 
 **Always specify the repo explicitly:**
 ```bash
-gh run view <RUN_ID> --repo TheTatu13/turbomecanica-sa-nodejs-scraper --json status -q .status
+gh run view <RUN_ID> --repo peviitor-scrapers/turbomecanica-sa-nodejs-scraper --json status -q .status
 ```
 
 Before starting any `gh run watch` or polling loop in the background, sanity-check:
@@ -116,6 +116,6 @@ npm run test:consistency   # needs GITHUB_REPOSITORY + GITHUB_TOKEN
 See [MAINTENANCE.md](MAINTENANCE.md) for the full maintenance workflow.
 
 **On every session:**
-1. Check open GitHub issues: `gh issue list --repo TheTatu13/turbomecanica-sa-nodejs-scraper --state open`
+1. Check open GitHub issues: `gh issue list --repo peviitor-scrapers/turbomecanica-sa-nodejs-scraper --state open`
 2. Prioritize: `critical` → `bug` → `enhancement` → `documentation`
 3. Fix all issues, commit with `#issue` reference, close the issue

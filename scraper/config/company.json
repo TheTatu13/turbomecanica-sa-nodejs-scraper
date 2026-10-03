@@ -6,5 +6,5 @@
   "location": ["Bucuresti"],
   "website": ["https://turbomecanica.ro"],
   "career": ["https://turbomecanica.ro/en/careers/available-jobs/"],
-  "scraperFile": "https://github.com/TheTatu13/turbomecanica-sa-nodejs-scraper/actions/workflows/scrape.yml"
+  "scraperFile": "https://github.com/peviitor-scrapers/turbomecanica-sa-nodejs-scraper/actions/workflows/scrape.yml"
 }
