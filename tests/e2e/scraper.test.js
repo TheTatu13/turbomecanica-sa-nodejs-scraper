@@ -4,6 +4,8 @@ import fetch from 'node-fetch';
 import companyConfig from '../../scraper/config/company.js';
 import scraperConfig from '../../scraper/config/scraper.js';
 
+jest.retryTimes(2, { logErrorsBeforeRetry: true }); // live third-party ANAF/search calls are occasionally slow in CI
+
 const API_BASE = 'https://api.peviitor.ro/v1';
 
 // The template ships {{PLACEHOLDER}} config. The live-site parts of this suite
